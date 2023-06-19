@@ -7,8 +7,5 @@
 # dependencies
 src/node_modules
 
-# personal info
-src/utils/constants.js
-
 .git
 .gitignore
