@@ -5,7 +5,4 @@
 # dependencies
 /node_modules
 
-# personal info
-/src/utils/constants.js
-
 docker-compose.yml
