@@ -10,7 +10,7 @@ require('dotenv').config({
 });
 
 sequelize.sync();
-const port = process.env.DEV_PORT;
+const port = process.env.DEV_PORT || '6060';
 const app = express();
 
 app.use(cors());
