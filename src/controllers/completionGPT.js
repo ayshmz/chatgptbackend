@@ -42,6 +42,11 @@ const saveChatResponse = async (req, res) => {
     const data = [...history, content];
     res.send(data);
   } catch (err) {
+    let content = {
+      role: 'assistant',
+      content:
+        "Meow whoops! Looks like there's a problem connecting... please try again later!",
+    };
     console.log('err', err.message);
     res.sendStatus(500).send([content]);
   }
