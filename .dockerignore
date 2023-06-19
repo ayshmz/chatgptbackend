@@ -1,8 +1,6 @@
 # dotenv environment variables file
 .env.local
 .env.test
-.env.development
-.env.production
 
 # dependencies
 src/node_modules
