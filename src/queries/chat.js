@@ -1,14 +1,14 @@
-const chatDB = require('../utils/database');
+const History = require('../models/history');
 
 const findHistory = async (sessionId) => {
-  const history = await chatDB.History.findAll({
+  const history = await History.findAll({
     where: { sessionId: sessionId },
   });
   return history;
 };
 
 const saveChat = async (sessionId, content, role) => {
-  const addedHistory = await chatDB.History.create({
+  const addedHistory = await History.create({
     sessionId,
     content,
     role,
