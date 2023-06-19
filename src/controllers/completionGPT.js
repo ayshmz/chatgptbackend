@@ -3,10 +3,11 @@ const { setupPrompt } = require('../utils/constants');
 const catChatQueryController = require('../queries/chat');
 
 const saveChatResponse = async (req, res) => {
-  console.log('...in post');
   // do something with prompt
   try {
     const { prompt, sessionId } = req.body;
+    console.log('...in post', prompt, sessionId, headers);
+
     await catChatQueryController.saveChat(sessionId, prompt, 'user');
     let content = {
       role: 'assistant',
@@ -34,11 +35,14 @@ const saveChatResponse = async (req, res) => {
         }
       ).catch((err) => console.log(err));
       const chatResponse = await response.json();
-      content = await catChatQueryController.saveChat(
-        sessionId,
-        chatResponse.choices[0].message.content,
-        'assistant'
-      );
+      console.log(chatResponse);
+      if (chatResponse) {
+        content = await catChatQueryController.saveChat(
+          sessionId,
+          chatResponse.choices[0].message.content,
+          'assistant'
+        );
+      }
     }
     const data = [...history, content];
     res.send(data);

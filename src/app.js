@@ -1,13 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const routes = require('./src/routes');
-const sequelize = require('./src/utils/database');
-const requests = require('./src/utils/requests');
-const History = require('./src/models/history');
+const routes = require('./routes');
+const sequelize = require('./utils/database');
+const requests = require('./utils/requests');
+const History = require('./models/history');
 
-require('dotenv').config({
-  path: `./.env.${process.env.NODE_ENV || 'local'}`,
-});
+require('dotenv').config();
 
 sequelize.sync();
 const port = process.env.DEV_PORT || '6060';

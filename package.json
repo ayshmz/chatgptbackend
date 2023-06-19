@@ -7,13 +7,15 @@
   "license": "MIT",
   "scripts": {
     "pm2": "pm2 start processes.json --no-daemon",
-    "start": "node ./bin/www",
+    "start": "NODE_ENV=production && node ./bin/www && yarn docker",
     "dev": "nodemon app.js",
-    "migrate": "node ./bin/migrate.js"
+    "migrate": "node ./bin/migrate.js",
+    "docker": "docker build . -t ayshmz/chatgptbackend"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "docker-compose": "^0.24.1",
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "morgan": "^1.10.0",

@@ -1,15 +1,10 @@
 const Sequelize = require('sequelize');
 
-require('dotenv').config({
-  path: `../../.env.${process.env.NODE_ENV || 'local'}`,
-});
+require('dotenv').config();
 
 console.log('....', process.env.NODE_ENV, process.env.PGHOST);
 
-const schema =
-  process.env.NODE_ENV === 'production'
-    ? process.env.PGDATABASE
-    : process.env.DB_SCHEMA;
+const schema = process.env.PGDATABASE;
 const user = process.env.PGUSER;
 const password = process.env.PGPASSWORD;
 const host = process.env.PGHOST;

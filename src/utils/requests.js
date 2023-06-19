@@ -1,7 +1,6 @@
-require('dotenv').config({
-  path: `./.env.${process.env.NODE_ENV || 'local'}`,
-});
+require('dotenv').config();
 
+console.log(process.env.CHATGPT_TOKEN);
 const headers = {
   Authorization: `Bearer ${process.env.CHATGPT_TOKEN}`,
   'Content-Type': 'application/json',
