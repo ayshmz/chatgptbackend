@@ -1,11 +1,28 @@
 const Sequelize = require('sequelize');
 
+const schema =
+  process.env.NODE_ENV === 'production'
+    ? process.env.POSTGRES_DATABASE
+    : process.env.DB_SCHEMA;
+const user =
+  process.env.NODE_ENV === 'production'
+    ? process.env.POSTGRES_USER
+    : process.env.DB_USER;
+const password =
+  process.env.NODE_ENV === 'production'
+    ? process.env.POSTGRES_PASSWORD
+    : process.env.DB_PASSWORD;
+const host =
+  process.env.NODE_ENV === 'production'
+    ? process.env.POSTGRES_HOST
+    : process.env.DB_HOST;
+
 const sequelize = new Sequelize(
-  process.env.DB_SCHEMA || 'postgres',
-  process.env.DB_USER || 'postgres',
-  process.env.DB_PASSWORD || '',
+  schema || 'postgres',
+  user || 'postgres',
+  password || '',
   {
-    host: process.env.DB_HOST || 'localhost',
+    host: host || 'localhost',
     port: process.env.DB_PORT || 5432,
     dialect: 'postgres',
   }

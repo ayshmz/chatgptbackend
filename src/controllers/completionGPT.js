@@ -3,6 +3,7 @@ const { setupPrompt } = require('../utils/constants');
 const catChatQueryController = require('../queries/chat');
 
 const saveChatResponse = async (req, res) => {
+  console.log('...in post');
   // do something with prompt
   try {
     const { prompt, sessionId } = req.body;

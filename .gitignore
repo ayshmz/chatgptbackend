@@ -1,6 +1,8 @@
 # dotenv environment variables file
-.env
+.env.local
 .env.test
+.env.development
+.env.production
 
 # dependencies
 /node_modules
@@ -8,3 +10,4 @@
 docker-compose.yml
 Dockerfile
 .vercel
+
