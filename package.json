@@ -8,7 +8,7 @@
   "scripts": {
     "pm2": "pm2 start processes.json --no-daemon",
     "start": "NODE_ENV=production && node ./bin/www && yarn docker",
-    "dev": "nodemon app.js",
+    "dev": "nodemon src/app.js",
     "migrate": "node ./bin/migrate.js",
     "docker": "docker build . -t ayshmz/chatgptbackend"
   },
